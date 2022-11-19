@@ -31,7 +31,7 @@ export default function Navbar() {
                     </div>
 
                     <div class="icones-mobile">
-                        <ion-icon name="paper-plane-outline"></ion-icon>
+                        <Icon name="paper-plane-outline" />
                     </div>
                 </div>
             </div>
