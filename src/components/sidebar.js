@@ -1,9 +1,13 @@
 import Suggestions from "./suggestions"
+import React from "react"
 
 export default function Sidebar() {
+    const[userName,setUserName] = React.useState("catana")
+    const[userProfile,setuserProfile] = React.useState("assets/img/catanacomics.svg")
+
     return (
         <div class="sidebar">
-       <Profile userNick="catanacomics" userName="catana"/>
+       <Profile userNick="catanacomics" userName={userName} userProfile={userProfile}/>
        <Suggestions/>
 
       
@@ -22,16 +26,25 @@ export default function Sidebar() {
 function Profile(props) {
     return (
         <div class="usuario">
-          <img src="assets/img/catanacomics.svg" />
+          <img onClick={changeUserImg} src={props.userProfile} />
           <div class="texto">
             <strong>{props.userNick}</strong>
             <span>
             {props.userName}
-              <ion-icon name="pencil"></ion-icon>
+              <ion-icon onClick={changeUsername} name="pencil"></ion-icon>
             </span>
           </div>
         </div>
     )
+
+}
+
+function changeUsername() {
+    setUserName(prompt("Entre com o seu nome de usuário: "))
+}
+
+function changeUserImg() {
+    setuserProfile(prompt("Entre com a URL da imagem: "))
 
 }
 }
