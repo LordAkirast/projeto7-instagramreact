@@ -9,10 +9,13 @@ export default function User() {
 
 
     function Profile(props) {
+        if (!props.userProfile) {
+            setuserProfile("assets/img/catanacomics.svg")
+        }
         return (
-            <div class="usuario" data-test="user">
+            <div className="usuario" data-test="user">
                 <img data-test="profile-image"onClick={changeUserImg} src={props.userProfile} />
-                <div class="texto">
+                <div className="texto">
                     <strong>{props.userNick}</strong>
                     <span data-test="name">
                         {props.userName}
@@ -31,6 +34,6 @@ export default function User() {
 
     function changeUserImg() {
         setuserProfile(prompt("Entre com a URL da imagem: "))
-
+        
     }
 }

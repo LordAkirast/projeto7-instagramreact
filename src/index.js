@@ -1,7 +1,6 @@
 import ReactDOM from "react-dom"
 import Navbar from "./components/navbar"
 import Body from "./components/body"
-import User from "./components/user" 
 
 
 

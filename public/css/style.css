@@ -400,3 +400,26 @@ ion-icon {
   margin-left: 5px;
 }
 
+
+.defaultBook {
+  color: black;
+
+}
+
+.defaultHeart {
+  color: black;
+
+}
+
+.clickedBook {
+  color: red !important;
+}
+
+.clickedHeart {
+  color: red !important;
+}
+
+ul {
+  display: flex;
+}
+
