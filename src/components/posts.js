@@ -9,13 +9,13 @@ export default function Posts() {
 
   return (
     <div className="posts">
-      <Post key="1" level="first-level" userImage="assets/img/meowed.svg" userName="meowed" userPost="assets/img/gato-telefone.svg" userFavImage="assets/img/respondeai.svg" userFav="respondeai"/>
+      <Post key="1" level="first-level" userImage="assets/img/meowed.svg" userName="meowed" userPost="assets/img/gato-telefone.svg" userFavImage="assets/img/respondeai.svg" userFav="respondeai" />
       <Post key="2" level="second-level" userImage="assets/img/barked.svg" userName="barked" userPost="assets/img/dog.svg" userFavImage="assets/img/adorable_animals.svg" userFav="adorable_animals" likeQtd="99.159" />
     </div>
   )
 
   function Post(props) {
-    
+
     const [bookmarkClicked, setbookmarkClicked] = React.useState("bookmark-outline")
     const [heartClicked, setheartClicked] = React.useState("heart-outline")
     return (
@@ -31,14 +31,14 @@ export default function Posts() {
         </div>
 
         <div className="conteudo">
-          <img src={props.userPost} onDoubleClick={heartClick} data-test="post-image" />
+          <img src={props.userPost} onDoubleClick={imgClick} data-test="post-image" />
         </div>
 
         <div className="fundo">
           <div className="acoes">
             <div>
               <ul className={props.level}>
-                <li className="defaultHeart" onClick={heartClick} data-test="like-post"><ion-icon  name={heartClicked}></ion-icon></li>
+                <li className="defaultHeart" onClick={heartClick} data-test="like-post"><ion-icon name={heartClicked}></ion-icon></li>
                 <li><ion-icon name="chatbubble-outline"></ion-icon> </li>
                 <li> <ion-icon name="paper-plane-outline"></ion-icon> </li>
               </ul>
@@ -62,6 +62,7 @@ export default function Posts() {
     function heartClick() {
       let element = document.querySelector('.defaultHeart')
       element.classList.toggle('clickedHeart')
+
       if (h === 0) {
         setheartClicked("heart-sharp")
         h = h + 1
@@ -70,9 +71,21 @@ export default function Posts() {
         setheartClicked("heart-outline")
         h = h - 1;
         likeQtd -= 1
-  
+
       }
     }
+
+    function imgClick() {
+      if (h === 0) {
+        let element = document.querySelector('.defaultHeart')
+        element.classList.toggle('clickedHeart')
+        setheartClicked("heart-sharp")
+        h = h + 1
+        likeQtd += 1
+      }
+    }
+
+
 
 
 
